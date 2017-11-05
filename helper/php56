@@ -1,0 +1,48 @@
+#!/bin/bash
+rm -Rf /php/trash/builds/5.6.32; mkdir -p /php/trash/builds/5.6.32
+mkdir -p /tmp; cd /tmp
+wget https://github.com/theraw/php-builder/raw/master/source/php-5.6.32.tar.bz2
+tar -xvjpf /tmp/php-5.6.32.tar.bz2 -C /php/trash/builds/
+mv /php/trash/builds/php-5.6.32 /php/trash/builds/5.6.32
+cd /php/trash/builds/5.6.32
+./configure \
+    --with-mcrypt \
+    --enable-mbstring \
+    --enable-mod-charset \
+    --enable-bcmath \
+    --enable-calendar \
+    --with-openssl \
+    --with-openssl=/php/openssl/ \
+    --with-openssl-dir=/php/openssl/ \
+    --enable-intl \
+    --with-readline \
+    --with-recode \
+    --with-libedit \
+    --with-mysql \
+    --with-mysql-sock \
+    --enable-soap \
+    --with-xmlrpc \
+    --with-gd \
+    --with-jpeg-dir=/usr/lib \
+    --enable-gd-native-ttf  \
+    --with-pdo-mysql \
+    --with-libxml-dir=/usr/lib \
+    --with-mysqli=/usr/bin/mysql_config \
+    --with-curl \
+    --enable-zip  \
+    --with-pear \
+    --enable-sockets \
+    --with-zlib \
+    --enable-exif \
+    --enable-ftp \
+    --with-iconv \
+    --with-gettext \
+    --enable-gd-native-ttf \
+    --with-t1lib=/usr \
+    --with-freetype-dir=/usr \
+    --prefix=/php/php56 \
+    --with-config-file-path=/php/php56/etc
+    
+make -j`nproc`
+pear install pear/PHP_Archive
+make install
