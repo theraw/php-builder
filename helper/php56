@@ -40,8 +40,8 @@ cd /php/trash/builds/5.6.32
     --enable-gd-native-ttf \
     --with-t1lib=/usr \
     --with-freetype-dir=/usr \
-    --prefix=/php/php56 \
-    --with-config-file-path=/php/php56/etc
+    --prefix=/php/56 \
+    --with-config-file-path=/php/56/etc
     
 make -j`nproc`
 pear install pear/PHP_Archive
