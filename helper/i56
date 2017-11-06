@@ -1,9 +1,11 @@
 rm -Rf /php/trash/builds/5.6.32; mkdir -p /php/trash/builds/; cd /php/trash/builds/
 wget https://github.com/theraw/php-builder/raw/master/source/php-5.6.32.zip
 unzip php-5.6.32.zip; rm -Rf php-5.6.32.zip
+mkdir -p 
 cd /php/trash/builds/5.6.32
 ./configure \
     --with-mcrypt \
+    --with-config-file-path=/php/56/lib \
     --enable-mbstring \
     --enable-mod-charset \
     --enable-bcmath \
