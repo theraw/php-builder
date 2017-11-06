@@ -37,6 +37,9 @@ REQS() {
 }
 DIRS() {
          mkdir -p /var/raws/php/sessions/ngx-php56
+         mkdir -p /var/raws/php/sessions/ngx-php70
+         mkdir -p /var/raws/php/sessions/ngx-php71
+         mkdir -p /var/raws/php/sessions/ngx-php72
 }
 OPENSSL097() {
          cd /tmp/; wget https://raw.githubusercontent.com/theraw/php-builder/master/helper/openssl097
