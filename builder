@@ -35,6 +35,9 @@ REQS() {
                  libtidy-dev libsasl2-dev unixodbc-dev freetds-dev libpspell-dev \
                  libgmp-dev libxslt1-dev libmcrypt-dev libdb5.3-dev libsnmp-dev
 }
+DIRS() {
+         mkdir -p /var/raws/php/sessions/ngx-php56
+}
 OPENSSL097() {
          cd /tmp/; wget https://raw.githubusercontent.com/theraw/php-builder/master/helper/openssl097
          sh /tmp/openssl097
