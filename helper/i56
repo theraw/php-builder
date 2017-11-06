@@ -2,6 +2,7 @@ rm -Rf /php/trash/builds/5.6.32; mkdir -p /php/trash/builds/; cd /php/trash/buil
 wget https://github.com/theraw/php-builder/raw/master/source/php-5.6.32.zip
 unzip php-5.6.32.zip; rm -Rf php-5.6.32.zip
 cd /php/trash/builds/5.6.32
+ln -s /usr/lib/libc-client.a /usr/lib/x86_64-linux-gnu/libc-client.a
 ./configure \
     --with-mcrypt \
     --enable-mbstring \
@@ -13,7 +14,8 @@ cd /php/trash/builds/5.6.32
     --with-openssl-dir=/php/openssl/ \
     --enable-intl \
     --with-readline \
-    --with-recode \
+    --with-imap \
+    --with-imap-ssl \
     --with-libedit \
     --with-mysql \
     --with-mysql-sock \
