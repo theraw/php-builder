@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir -p /php/openssl; cd /php/openssl; wget https://github.com/openssl/openssl/archive/OpenSSL_0_9_7c.zip
+rm -Rf /php/openssl; mkdir -p /php/openssl; cd /php/openssl; wget https://github.com/openssl/openssl/archive/OpenSSL_0_9_7c.zip
 unzip OpenSSL_0_9_7c.zip; rm -Rf OpenSSL_0_9_7c.zip; mv openssl* 0.9.7; cd 0.9.7
 ./config --prefix=/php/openssl --openssldir=/php/openssl no-asm -fPIC
 make -j`nproc`
