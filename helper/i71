@@ -61,3 +61,6 @@ cd /php/trash/builds/7.1.11
 make -j`nproc`
 pear install archive_zip-beta
 make install
+sudo update-alternatives --install "/usr/bin/php" php "/php/71/bin/php" 50 \
+  --slave /usr/share/man/man1/php.1.gz php.1.gz \
+  "/php/71/php/man/man1/php.1"
