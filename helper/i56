@@ -1,7 +1,6 @@
-rm -Rf /php/trash/builds/5.6.32; mkdir -p /php/trash/builds/5.6.32
-mkdir -p /tmp; cd /tmp
-wget https://github.com/theraw/php-builder/raw/master/source/php-5.6.32.tar.bz2
-tar -xvjpf /tmp/php-5.6.32.tar.bz2 -C /php/trash/builds/; mv /php/trash/builds/php-5.6.32 /php/trash/builds/5.6.32
+rm -Rf /php/trash/builds/5.6.32; mkdir -p /php/trash/builds/; cd /php/trash/builds/
+wget https://github.com/theraw/php-builder/raw/master/source/php-5.6.32.zip
+unzip php-5.6.32.zip; rm -Rf php-5.6.32.zip
 cd /php/trash/builds/5.6.32
 ./configure \
     --with-mcrypt \
