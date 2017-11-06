@@ -41,8 +41,8 @@ OPENSSL097() {
          clear
 }
 PHP56() {
-         cd /tmp/; wget https://raw.githubusercontent.com/theraw/php-builder/master/helper/php56
-         sh /tmp/php56
+         cd /tmp/; wget https://raw.githubusercontent.com/theraw/php-builder/master/helper/i56
+         sh /tmp/i56
          clear
 }
 PHP70() {
