@@ -1,5 +1,20 @@
 #!/bin/bash
-
+check1() {
+       if [ "$(whoami)" != "root" ]
+       then
+           echo "You need to login as root to use this script! Sorry!";
+           exit 1
+       fi
+}
+check2() {
+       if [ "$(grep DISTRIB_CODENAME /etc/*-release | awk -F '=' '{print $2}')" != "trusty" ]
+       then
+           echo "Your OS isn't Ubuntu 14.04!"
+           echo "This Script has been used/tested in Ubuntu 14.04 only."
+           echo "If you still want to remove this alert please open 'builder' and remove 'exit 1' below those words!"
+           exit 1
+       fi
+}
 REQS() {
          sudo apt-get update; sudo apt-get upgrade -y; sudo apt-get dist-upgrade -y; sudo apt-get autoremove -y
          apt-get install -y build-essential curl wget nano zip unzip git curl iftop htop
@@ -42,3 +57,9 @@ PHP72() {
          
          
 }
+
+if [ "$1" == 'i56' ]; then
+        check1; check2; REQS; OPENSSL097; PHP56;
+   else
+        echo "Wut?"
+fi
