@@ -27,3 +27,7 @@ Meanwhile the script doesn't have any check to catch if you get any error while 
   -  **`/php/71/bin/php`**
 
   -  **`/php/72/bin/php`**
+
+ [+] **How to update the 'builder' cli?**
+ 
+   -  **`builder update`**
