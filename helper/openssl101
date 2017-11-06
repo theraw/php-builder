@@ -1,0 +1,6 @@
+#!/bin/bash
+rm -Rf /php/openssl2; mkdir -p /php/openssl2; cd /php/openssl2; wget https://github.com/openssl/openssl/archive/OpenSSL_1_0_1m.zip
+unzip OpenSSL_1_0_1m.zip; rm -Rf OpenSSL_1_0_1m.zip; mv openssl* 1.0.1; cd 1.0.1
+./config --prefix=/php/openssl2 --openssldir=/php/openssl2 no-asm -fPIC
+make -j`nproc`
+make install
