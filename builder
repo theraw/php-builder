@@ -57,9 +57,19 @@ PHP72() {
          
          
 }
+UPDATE() {
+         rm -Rf /bin/builder; cd /bin/
+         wget https://raw.githubusercontent.com/theraw/php-builder/master/builder; chmod +x /bin/builder
+}
 
 if [ "$1" == 'i56' ]; then
         check1; check2; REQS; OPENSSL097; PHP56;
+   else
+        echo "Wut?"
+fi
+if [ "$1" == 'update' ]; then
+        UPDATE;
+        echo "DONE!"
    else
         echo "Wut?"
 fi
