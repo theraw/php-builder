@@ -1,0 +1,63 @@
+apt-get install -y libc-client2007e-dev libpam0g-dev libpq-dev
+apt-get install -y zlib-bin zlib1g zlib1g-dbg zlib1g-dev clisp-module-zlib libghc-bzlib-dev
+cd /tmp; wget https://raw.githubusercontent.com/theraw/php-builder/master/helper/openssl101; chmod +x /tmp/openssl101
+./openssl101
+ln -s /usr/lib/libc-client.a /usr/lib/x86_64-linux-gnu/libc-client.a
+ln -sf /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so
+ln -sf /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so
+ln -sf /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h
+
+rm -Rf /php/trash/builds/7.1.11; mkdir -p /php/trash/builds/; cd /php/trash/builds/
+wget http://cz1.php.net/get/php-7.1.11.tar.bz2/from/this/mirror -O php-7.1.11.tar.bz2
+tar jxf php-7.1.11.tar.bz2; rm -Rf php-7.1.11.tar.bz2; mv php-7.1.11 7.1.11
+
+cd /php/trash/builds/7.1.11
+./configure \
+    --with-mcrypt \
+    --enable-mbstring \
+    --enable-bcmath \
+    --enable-calendar \
+    --with-openssl \
+    --with-openssl=/php/openssl2/ \
+    --with-openssl-dir=/php/openssl2/ \
+    --enable-intl \
+    --with-readline \
+    --with-libedit \
+    --enable-soap \
+    --with-xmlrpc \
+    --with-pgsql \
+    --disable-rpath \
+    --enable-inline-optimization \
+    --enable-pcntl \
+    --enable-sysvsem \
+    --enable-mbregex \
+    --with-pcre-regex \
+    --enable-sysvshm \
+    --with-gd \
+    --with-jpeg-dir=/usr/lib \
+    --enable-gd-native-ttf  \
+    --with-pdo-mysql \
+    --with-libxml-dir=/usr/lib \
+    --with-mysqli \
+    --with-mysql-sock=/var/run/mysqld/mysqld.sock \
+    --with-curl \
+    --enable-zip  \
+    --with-imap \
+    --with-imap-ssl \
+    --with-kerberos \
+    --with-xsl \
+    --with-pear \
+    --enable-sockets \
+    --with-zlib \
+    --enable-exif \
+    --enable-ftp \
+    --with-iconv \
+    --with-gettext \
+    --enable-gd-native-ttf \
+    --with-freetype-dir=/usr \
+    --prefix=/php/71 \
+    --with-config-file-path=/php/71/etc
+    
+make -j`nproc`
+pear install archive_zip-beta
+make install
